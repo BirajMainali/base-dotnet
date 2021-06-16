@@ -1,2 +1,3 @@
-#### Notes :  `The base project should not take responsibility for other projects, mean to say, the base project relationship between the other project should be the only one way`, 
-
+## Into
+This is a base class library project for the net project,
+It includes very basic things you need to use such as, generic repo, SQL connection extension, base entity, user providers, etc ...
