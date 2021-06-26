@@ -1,3 +1,2 @@
-## Into
-This is a base class library project for the net project,
-It includes very basic things you need to use such as, generic repo, SQL connection extension, base entity, user providers, etc ...
+## Intro:
+This is a base class library project, which contains important material for Modular Ef Core.
