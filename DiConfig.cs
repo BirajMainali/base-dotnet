@@ -8,7 +8,9 @@ namespace Base
     {
         public static IServiceCollection UseBase(this IServiceCollection service)
         {
-            return service.AddScoped<ISqlConnectionProvider, SqlConnectionProvider>();
+            service.AddScoped<ISqlConnectionProvider, SqlConnectionProvider>()
+                .AddScoped<IUserProvider, UserProvider>();
+            return service;
         }
     }
 }

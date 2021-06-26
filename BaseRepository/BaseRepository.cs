@@ -3,18 +3,18 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Linq.Expressions;
 using System.Threading.Tasks;
-using Base.GenericRepository.Interface;
+using Base.BaseRepository.Interface;
 using Microsoft.EntityFrameworkCore;
 
-namespace Base.GenericRepository
+namespace Base.BaseRepository
 {
-    public class GenericRepository<T> : IGenericRepository<T> where T : class
+    public class BaseRepository<T> : IBaseRepository<T> where T : class
     {
         private readonly DbContext _context;
         private readonly DbSet<T> _dbSet;
 
 
-        public GenericRepository(DbContext context)
+        public BaseRepository(DbContext context)
         {
             _context = context;
             _dbSet = context.Set<T>();
@@ -69,7 +69,7 @@ namespace Base.GenericRepository
 
         public async Task<T> FindOrThrowAsync(long id)
         {
-            return await FindAsync(id) ?? throw new Exception("Id did not matched");
+            return await FindAsync(id) ?? throw new Exception("Item Not Found");
         }
 
         public IQueryable<T> GetQueryable()

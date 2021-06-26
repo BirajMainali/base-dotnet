@@ -1,7 +1,7 @@
 ﻿#nullable enable
 using System;
 
-namespace Base.Entity
+namespace Base.Entities
 {
     public class BaseEntity
     {
