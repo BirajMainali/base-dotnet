@@ -4,6 +4,7 @@ using System.Linq;
 using System.Linq.Expressions;
 using System.Threading.Tasks;
 using Base.BaseRepository.Interface;
+using Base.Exceptions;
 using Microsoft.EntityFrameworkCore;
 
 namespace Base.BaseRepository
@@ -69,7 +70,7 @@ namespace Base.BaseRepository
 
         public async Task<T> FindOrThrowAsync(long id)
         {
-            return await FindAsync(id) ?? throw new Exception("Item Not Found");
+            return await FindAsync(id) ?? throw new NotFoundException(id, typeof(T));
         }
 
         public IQueryable<T> GetQueryable()

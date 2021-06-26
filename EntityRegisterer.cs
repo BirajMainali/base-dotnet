@@ -10,5 +10,6 @@ namespace Base
             builder.Entity<User>();
             return builder;
         }
+       
     }
 }
