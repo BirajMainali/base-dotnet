@@ -1,4 +1,5 @@
-﻿using Base.Entities.User;
+﻿using Base.Constants;
+using Base.Entities.User;
 using Microsoft.EntityFrameworkCore;
 
 namespace Base
@@ -7,9 +8,8 @@ namespace Base
     {
         public static ModelBuilder AddBase(this ModelBuilder builder)
         {
-            builder.Entity<User>();
+            builder.Entity<User>().ToTable("auth_user", schema: Schema.User);
             return builder;
         }
-       
     }
 }
