@@ -25,7 +25,7 @@ namespace Base.Providers
         }
 
         /// <summary>
-        /// Get Current Login In User
+        /// Get Current User
         /// </summary>
         /// <returns>User</returns>
         public async Task<User> GetCurrentUser()

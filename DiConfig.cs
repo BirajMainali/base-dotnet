@@ -6,11 +6,8 @@ namespace Base
 {
     public static class DiConfig
     {
-        public static IServiceCollection UseBase(this IServiceCollection service)
-        {
-            service.AddScoped<ISqlConnectionProvider, SqlConnectionProvider>()
+        public static IServiceCollection UseBase(this IServiceCollection service) 
+            => service.AddScoped<ISqlConnectionProvider, SqlConnectionProvider>()
                 .AddScoped<IUserProvider, UserProvider>();
-            return service;
-        }
     }
 }

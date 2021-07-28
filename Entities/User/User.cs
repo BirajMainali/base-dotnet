@@ -5,6 +5,6 @@ namespace Base.Entities.User
 {
     public class User : IdentityUser, ISoftDelete
     {
-        public string ResetToken { get; set; }
+        public string ResetToken { get; protected set; }
     }
 }
