@@ -14,7 +14,9 @@ namespace Base.Providers
         private readonly IHttpContextAccessor _contextAccessor;
         private readonly UserManager<User> _userManager;
 
-        public UserProvider(IUserRepository userRepository, IHttpContextAccessor contextAccessor,
+        public UserProvider(
+            IUserRepository userRepository,
+            IHttpContextAccessor contextAccessor,
             UserManager<User> userManager)
         {
             _userRepository = userRepository;
@@ -22,6 +24,10 @@ namespace Base.Providers
             _userManager = userManager;
         }
 
+        /// <summary>
+        /// Get Current Login In User
+        /// </summary>
+        /// <returns>User</returns>
         public async Task<User> GetCurrentUser()
         {
             var userId = Convert.ToInt32(_userManager.GetUserId(_contextAccessor.HttpContext?.User));

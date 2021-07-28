@@ -10,10 +10,12 @@ namespace Base.Providers
         private readonly IConfiguration _configuration;
 
         public SqlConnectionProvider(IConfiguration configuration)
-        {
-            _configuration = configuration;
-        }
+            => _configuration = configuration;
 
+        /// <summary>
+        /// Get Postgres Sql Connection string
+        /// </summary>
+        /// <returns></returns>
         public NpgsqlConnection GetConnection()
         {
             var connectionString = _configuration.GetDefaultConnectionString();

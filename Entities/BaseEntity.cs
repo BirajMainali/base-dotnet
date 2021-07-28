@@ -1,5 +1,6 @@
 ﻿#nullable enable
 using System;
+using Base.Constants;
 
 namespace Base.Entities
 {
@@ -9,6 +10,6 @@ namespace Base.Entities
         public DateTime RecDate { get; set; } = DateTime.Now;
         public DateTime? ChangeAt { get; set; }
         public string? RecAuditLog { get; set; }
-        public char RecStatus { get; set; } = 'A';
+        public char RecStatus { get; set; } = Status.Active;
     }
 }

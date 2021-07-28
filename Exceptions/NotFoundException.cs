@@ -13,9 +13,7 @@ namespace Base.Exceptions
             Entity = entity;
         }
 
-        private static string ConfigMessage(long id, Type entity)
-        {
-            return $"Item{entity.Name} # {id} not found";
-        }
+        private static string ConfigMessage(long id, Type entity) 
+            => $"Item{entity.Name} # {id} not found";
     }
 }
