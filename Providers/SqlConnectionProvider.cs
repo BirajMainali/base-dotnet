@@ -13,7 +13,7 @@ namespace Base.Providers
             => _configuration = configuration;
 
         /// <summary>
-        /// Get Postgres Sql Connection string
+        /// Ready to use NpgsqlConnection
         /// </summary>
         /// <returns></returns>
         public NpgsqlConnection GetConnection()
