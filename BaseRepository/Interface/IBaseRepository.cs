@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Linq.Expressions;
 using System.Threading.Tasks;
+using Base.Application;
 
 namespace Base.BaseRepository.Interface
 {
@@ -20,5 +21,6 @@ namespace Base.BaseRepository.Interface
         Task<bool> CheckIfExistAsync(Expression<Func<T, bool>> predicate);
         Task<T> FindOrThrowAsync(long id);
         IQueryable<T> GetQueryable();
+        Pagination<T> Paginate(IQueryable<T> queryable, int page = 1, int limit = 100);
     }
 }

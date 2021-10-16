@@ -2,7 +2,7 @@
 using Base.Entities.User;
 using Microsoft.EntityFrameworkCore;
 
-namespace Base
+namespace Base.Application
 {
     public static class EntityRegisterer
     {

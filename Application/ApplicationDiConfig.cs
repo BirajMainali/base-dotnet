@@ -2,9 +2,9 @@
 using Base.Providers.Interface;
 using Microsoft.Extensions.DependencyInjection;
 
-namespace Base
+namespace Base.Application
 {
-    public static class DiConfig
+    public static class ApplicationDiConfig
     {
         public static IServiceCollection UseBase(this IServiceCollection service) 
             => service.AddScoped<ISqlConnectionProvider, SqlConnectionProvider>()

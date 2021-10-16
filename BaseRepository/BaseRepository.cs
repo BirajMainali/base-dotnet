@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Linq.Expressions;
 using System.Threading.Tasks;
+using Base.Application;
 using Base.BaseRepository.Interface;
 using Base.Exceptions;
 using Microsoft.EntityFrameworkCore;
@@ -45,14 +46,27 @@ namespace Base.BaseRepository
 
         public async Task<T> FindAsync(long id) => await _dbSet.FindAsync(id);
 
-        public async Task<bool> CheckIfExistAsync(Expression<Func<T, bool>> predicate) => await _dbSet.AnyAsync(predicate);
+        public async Task<bool> CheckIfExistAsync(Expression<Func<T, bool>> predicate) =>
+            await _dbSet.AnyAsync(predicate);
 
-        public async Task<T> FindOrThrowAsync(long id) => await FindAsync(id) ?? throw new NotFoundException(id, typeof(T));
+        public async Task<T> FindOrThrowAsync(long id) =>
+            await FindAsync(id) ?? throw new NotFoundException(id, typeof(T));
 
         public IQueryable<T> GetQueryable() => _dbSet.AsQueryable();
 
-        public Task<T> GetItemAsync(Expression<Func<T, bool>> predicate) => _context.Set<T>().FirstOrDefaultAsync(predicate);
+        public Task<T> GetItemAsync(Expression<Func<T, bool>> predicate) =>
+            _context.Set<T>().FirstOrDefaultAsync(predicate);
 
         public T Find(long id) => _dbSet.Find(id);
+
+        public Pagination<T> Paginate(IQueryable<T> queryable, int page = 1, int limit = 100)
+        {
+            return new Pagination<T>(
+                queryable.Skip((page - 1) * limit).Take(limit).ToList(),
+                queryable.Count(),
+                page,
+                limit
+            );
+        }
     }
 }
