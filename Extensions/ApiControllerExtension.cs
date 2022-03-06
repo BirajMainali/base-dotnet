@@ -1,5 +1,4 @@
-﻿using Microsoft.AspNetCore.DataProtection.Internal;
-using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Mvc;
 
 namespace Base.Extensions
 {

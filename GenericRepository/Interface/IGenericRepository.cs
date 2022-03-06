@@ -5,9 +5,9 @@ using System.Linq.Expressions;
 using System.Threading.Tasks;
 using Base.Application;
 
-namespace Base.BaseRepository.Interface
+namespace Base.GenericRepository.Interface
 {
-    public interface IBaseRepository<T> where T : class
+    public interface IGenericRepository<T> where T : class
     {
         Task CreateAsync(T t);
         void Update(T t);

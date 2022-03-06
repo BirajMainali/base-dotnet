@@ -5,7 +5,7 @@
     </PropertyGroup>
 
     <ItemGroup>
-        <Folder Include="BaseRepository\Interface\" />
+        <Folder Include="GenericRepository\Interface\" />
     </ItemGroup>
 
     <ItemGroup>

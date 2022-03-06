@@ -4,19 +4,19 @@ using System.Linq;
 using System.Linq.Expressions;
 using System.Threading.Tasks;
 using Base.Application;
-using Base.BaseRepository.Interface;
 using Base.Exceptions;
+using Base.GenericRepository.Interface;
 using Microsoft.EntityFrameworkCore;
 
 namespace Base.BaseRepository
 {
-    public class BaseRepository<T> : IBaseRepository<T> where T : class
+    public class GenericRepository<T> : IGenericRepository<T> where T : class
     {
         private readonly DbContext _context;
         private readonly DbSet<T> _dbSet;
 
 
-        public BaseRepository(DbContext context)
+        public GenericRepository(DbContext context)
         {
             _context = context;
             _dbSet = context.Set<T>();
